@@ -9,10 +9,15 @@ export class Search extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  onSubmitForm = (e) => {
+    e.preventDefault();
+    this.props.searchUsers(this.state.text);
+  };
+
   render() {
     return (
       <div>
-        <form className='form'>
+        <form className='form' onSubmit={this.onSubmitForm}>
           <input
             type='text'
             name='text'
